@@ -1,0 +1,85 @@
+<tr class="sticky-calendar-row ">
+  <td class="timeslots"></td>
+
+  <td class="text-center date-cell" data-bs-day="{{day.dayjsDateId}}">
+    <button id="{{day.dayjsDateId}}"
+      class="date-clickable badge rounded-pill border-0{{#if (checkIfToday day.year day.month day.day)}} swatch-orange{{/if}}">
+      {{day.day}}
+    </button>
+  </td>
+
+</tr>
+{{#each timeslots}}
+<tr>
+  <td class=" timeslots">{{this}}</td>
+
+
+  <td class="date-time-cell" data-bs-day="{{../day.dayjsDateId}}" data-bs-timeslot="{{this}}">
+    <div class="d-grid gap-1">
+      {{#if ../day.modalData.meetings.length}}
+      {{#each ../day.modalData.meetings}}
+      {{#if (eq this.timeslotStart ../this)}}
+      <button
+        class="badge event-pill swatch-cyan{{#if this.expired}}-subtle{{/if}}  text-wrap  text-center event-button draggable-event-button"
+        draggable="true" data-bs-toggle="modal" data-bs-target="#modal-meeting-display" data-bs-eventId="{{this._id}}"
+        data-bs-userId="{{../../session.user_id}}" data-bs-event-type="{{this.type}}">
+        <i class="bi-calendar-event"></i>
+        {{{this.title}}}</button>
+      {{/if}}
+      {{/each}}
+      {{/if}}
+
+      {{#if ../day.modalData.notes.length}}
+      {{#each ../day.modalData.notes}}
+      {{#if (eq this.timeslotStart ../this)}}
+      <button
+        class="badge event-pill bg-success{{#if this.expired}}-subtle{{/if}}  text-wrap  text-center event-button draggable-event-button"
+        draggable="true" data-bs-toggle="modal" data-bs-target="#modal-notes-display" data-bs-eventId="{{this._id}}"
+        data-bs-userId="{{../../session.user_id}}" data-bs-event-type="{{this.type}}">
+        <i class="bi-file-text"></i>
+        {{{this.title}}}</button>
+      {{/if}}
+      {{/each}}
+      {{/if}}
+
+      {{#if ../day.modalData.reminders.length}}
+      {{#each ../day.modalData.reminders}}
+      {{#if (eq this.timeslotStart ../this)}}
+      <button
+        class="badge event-pill swatch-indigo{{#if this.expired}}-subtle{{/if}}  text-wrap  text-center event-button draggable-event-button"
+        draggable="true" data-bs-toggle="modal" data-bs-target="#modal-reminder-display" data-bs-eventId="{{this._id}}"
+        data-bs-userId="{{../../session.user_id}}" data-bs-event-type="{{this.type}}">
+        <i class="bi-alarm"></i>
+        {{{this.title}}}</button>
+      {{/if}}
+      {{/each}}
+      {{/if}}
+
+      {{#if ../day.modalData.tasks.length}}
+      {{#each ../day.modalData.tasks}}
+      {{#if (eq this.timeslotStart ../this)}}
+      <div
+        class="badge border-0 bg-danger{{#if this.expired}}-subtle{{/if}}  text-wrap text-center draggable-event-button"
+        draggable="true" data-bs-eventId="{{this._id}}" data-bs-userId="{{../../session.user_id}}"
+        data-bs-event-type="{{this.type}}">
+        <input name="taskCheckBox" class="task-checkbox" data-bs-eventId="{{this._id}}"
+          data-bs-userId="{{../../session.user_id}}" type="checkbox" value="true" aria-label="Task Checkbox" {{#if
+          this.checked}}checked {{/if}}>
+        <button
+          class="badge event-pill bg-danger{{#if this.expired}}-subtle{{/if}} {{#if this.checked}}task-completed{{/if}} border-0  text-wrap  text-center event-button"
+          data-bs-toggle="modal" data-bs-target="#modal-task-display" data-bs-eventId="{{this._id}}"
+          data-bs-userId="{{../../session.user_id}}" data-bs-event-type="{{this.type}}">
+          <i class="bi-check2-square"></i>
+          {{{this.title}}}</button>
+      </div>
+      {{/if}}
+      {{/each}}
+      {{/if}}
+
+
+    </div>
+  </td>
+
+
+</tr>
+{{/each}}

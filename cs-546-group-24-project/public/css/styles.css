@@ -1,0 +1,171 @@
+.userRightMenu {
+  text-align-last: end;
+}
+
+.active-month {
+  text-align: center;
+  vertical-align: top;
+  width: 9vw;
+  height: 13vh;
+}
+
+.date-cell:hover {
+  border: grey;
+  border-style: dashed;
+  z-index: 1;
+}
+
+.date-cell-active {
+  border: green !important;
+  border-style: dashed !important;
+  z-index: 1;
+}
+
+.greyed-out {
+  width: 8vw;
+  height: 13vh;
+}
+.day-events span {
+  text-align: left !important;
+}
+
+.timeslots {
+  width: 7vw;
+}
+
+.sticky-calendar-head {
+  height: 3vh;
+  position: sticky;
+  top: 0;
+  color: var(--text-color);
+  background-color: var(--bs-body-bg);
+}
+
+.sticky-calendar-row {
+  position: sticky;
+  top: 4vh;
+  color: var(--text-color);
+  background-color: var(--bs-body-bg);
+}
+
+footer {
+  text-align-last: center;
+  top: 2px;
+  height: 5vh;
+}
+
+i {
+  pointer-events: none;
+}
+
+.overflow-scroll-y {
+  overflow: auto;
+}
+
+.event-pill {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+html[data-bs-theme="dark"] {
+  --text-color: white;
+}
+html[data-bs-theme="light"] {
+  --text-color: black;
+}
+.date-clickable {
+  color: var(--text-color);
+  z-index: 1;
+}
+
+/* taken from bootstap 5 docs */
+.swatch-indigo {
+  color: #fff;
+  background-color: #6610f2;
+}
+
+.swatch-cyan {
+  color: #000;
+  background-color: #0dcaf0;
+}
+
+.swatch-indigo-subtle {
+  color: #000;
+  text-decoration: line-through;
+  background-color: #c5b3e6;
+}
+
+.swatch-cyan-subtle {
+  color: #000;
+  text-decoration: line-through;
+  background-color: #9eeaf9;
+}
+.bg-success-subtle {
+  color: var(--text-color);
+  text-decoration: line-through;
+}
+
+.bg-danger-subtle {
+  color: var(--text-color);
+  /* text-decoration: line-through; */
+}
+.task-completed {
+  color: var(--text-color);
+  text-decoration: line-through;
+}
+
+.datepicker table tr td.new,
+.datepicker table tr td.old {
+  color: currentcolor !important;
+}
+
+.swatch-orange {
+  color: #000;
+  background-color: #fd7e14;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  color: var(--bs-btn-disabled-color);
+  pointer-events: none;
+  background-color: var(--bs-btn-disabled-bg);
+  border-color: var(--bs-btn-disabled-border-color);
+  opacity: 1;
+}
+
+button[data-bs-event-type="task"] {
+  width: 80%;
+  font-size: inherit;
+}
+
+#modal-summary-display div.card-body div.overflow-scroll-y {
+  max-height: 50vh;
+}
+
+.display_current_items_card div.card-body div.overflow-scroll-y {
+  max-height: 37vh;
+}
+
+div.backlog_items_card div.card-body div.overflow-scroll-y,
+div.unassigned_items_card div.card-body div.overflow-scroll-y {
+  max-height: 20vh;
+}
+
+div.top50items_card div.card-body div.overflow-scroll-y {
+  max-height: 50vh;
+}
+
+#calendar-div table {
+  height: 82vh;
+}
+#calendar-div {
+  height: 85vh;
+}
+
+#modal-meeting-display .modal-body,
+#modal-task-display .modal-body,
+#modal-reminder-display .modal-body,
+#modal-notes-display .modal-body {
+  max-height: 75vh;
+}

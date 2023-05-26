@@ -1,0 +1,113 @@
+<div id="signup-form-div" class="container w-50">
+  <form action="/user/signup" id="signup-form" method="POST" class="needs-validation was-validated" novalidate>
+    <h1 class="h3  fw-normal">
+      <i class="bi-calendar-check-fill"></i>
+      Create an Account
+    </h1>
+
+    <br />
+    <div>
+      <label for="first_name" class="form-label">First Name</label>
+      <input required type="text" class="form-control" name="first_name" id="first_name"
+        aria-describedby="first_name_help_id" placeholder="First Name" maxlength="20"
+        pattern="^(?=.{1,20}$)(?![\d])[\w\s]+$" value="" />
+      <small id="first_name_help_id" class="form-text text-muted">
+        Please Enter First Name Here</small>
+      <div id="first_name_error" class="invalid-feedback">
+
+      </div>
+    </div>
+    <div>
+      <label for="last_name" class="form-label">Last Name</label>
+      <input required type="text" class="form-control" name="last_name" id="last_name"
+        aria-describedby="last_name_help_id" placeholder="Last Name" maxlength="20"
+        pattern="^(?=.{1,20}$)(?![\d])[\w\s]+$" value="" />
+      <small id="last_name_help_id" class="form-text text-muted">
+        Please Enter Last Name Here</small>
+      <div id="last_name_error" class="invalid-feedback">
+
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email address</label>
+      <input required type="email" class="form-control" name="email" id="email" placeholder="abc@mail.com"
+        aria-describedby="email_help_id" pattern="^[a-zA-Z]+[\._%+\-]*[a-zA-Z0-9]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}$"
+        value="" />
+      <small id="email_help_id" class="form-text text-muted">
+        Please Enter Email Here. This will also be used as your login id
+      </small>
+      <div id="email_error" class="invalid-feedback">
+
+
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input required type="password" class="form-control" name="password" id="password" placeholder="Password"
+        minlength="8" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&_=+.])[a-zA-Z\d!@#$%^&_=+.]{8,}$"
+        aria-describedby="password_help_id" value="" />
+      <label for="password">Password</label>
+      <small id="password_help_id" class="form-text text-muted">
+        Please Enter Password Here</small>
+      <div id="password_error" class="invalid-feedback">
+
+      </div>
+    </div>
+
+    <div>
+      <label for="reEnterPassword">Re-Enter Password</label>
+      <input required type="password" class="form-control" name="reEnterPassword" id="reEnterPassword"
+        placeholder="Password" minlength="8" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&_=+.])[a-zA-Z\d!@#$%^&_=+.]{8,}$"
+        aria-describedby="reEnterPassword_help_id" />
+      <small id="reEnterPassword_help_id" class="form-text text-muted">
+        Please Re-Enter Password Here</small>
+      <div id="reEnter_error" class="invalid-feedback">
+
+      </div>
+    </div>
+
+    <div>
+      <label for="dob" class="form-label">Date Of Birth</label>
+      <input required type="date" class="form-control" name="dob" id="dob" aria-describedby="dob_help_id"
+        max="{{minDobDate}}" min="{{maxDobDate}}" value="" />
+      <small id="dob_help_id" class="form-text text-muted">Please Enter Date Of
+        Birth</small>
+      <div id="date_error" class="invalid-feedback">
+        <p>
+          Please enter a date Range between
+          <br>
+          {{minDobDate}} to {{maxDobDate}}
+        </p>
+      </div>
+    </div>
+
+    <br />
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="consent" id="consent" aria-describedby="consent_help_id"
+        value="true" required />
+      <label class="form-check-label" for="consent">
+        Consent CheckBox
+      </label>
+      <small id="consent_help_id" class="form-text text-muted">
+        Consent for data being collected on this application</small>
+      <div id="consent_error" class="invalid-feedback">
+
+      </div>
+    </div>
+
+    <button id="submit-btn" class="w-100 btn btn-lg btn-primary" type="submit">
+      Signup
+    </button>
+
+
+  </form>
+  <a id="forgot" href="/forgot">Forgot Password?</a>
+  <br />
+
+  <a id="signup_link" href="/user/signup">Not Registered?
+    Click here to Signup</a>
+</div>
+
+<script src="/public/scripts/signup.js" type="text/javascript"></script>

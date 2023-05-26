@@ -1,0 +1,101 @@
+<div class="modal fade" id="modal-task-display" tabindex="-1" aria-labelledby="modal-task-label" aria-hidden="true"
+  data-bs-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <span class="modal-title" id="modal-task-label">
+          <i>Task Event</i>
+
+        </span>
+        <button type="button" class="btn btn-edit" aria-label="Edit" {{! onclick="enableFormEdit()" }}>
+          <i class="bi-pencil-fill"></i>
+        </button>
+        <button type="button" class="btn btn-danger btn-delete" aria-label="Delete">
+          <i class="bi-trash3-fill"></i>
+        </button>
+        <button id="task-top-close-button" type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+
+      <fieldset id="task-form-enabler" disabled>
+        <div class="modal-body overflow-scroll-y">
+          <form id="task-form" class="needs-validation was-validated" novalidate>
+            {{! title }}
+            <div class="mb-3">
+              <label for="task_title" class="form-label">Title</label>
+              <input required type="text" class="form-control" name="title" id="task_title" placeholder="Title" value=""
+                minlength="1" maxlength="100" />
+              <div id="task_title_error" class="invalid-feedback">
+
+              </div>
+            </div>
+            {{! textBody }}
+            <div class="mb-3">
+              <label for="task_textBody" class="form-label">Description</label>
+              <input type="text" class="form-control" name="textBody" id="task_textBody" placeholder="Description"
+                value="" maxlength="200" />
+              <div id="task_textBody_error" class="invalid-feedback">
+
+              </div>
+            </div>
+            {{! tag }}
+            <div class="mb-3">
+              <label for="task_tag" class="form-label">Tag</label>
+              <input type="text" class="form-control" name="tag" id="task_tag" placeholder="Tag" value="" maxlength="20"
+                pattern="(^$)|(^[a-zA-Z0-9_]+$)" />
+              <div id="task_tag_error" class="invalid-feedback">
+
+              </div>
+            </div>
+            {{! priority }}
+            <div class="mb-3">
+              <label for="task_priority" class="form-label">Priority</label>
+              <select required class="form-select form-select-sm" name="priority" id="task_priority">
+                <option value="">Please select an option</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
+              </select>
+              <div id="task_priority_error" class="invalid-feedback">
+              </div>
+            </div>
+            {{! dateAddedTo }}
+            <div class=" mb-3">
+              <label for="task_dateAddedTo" class="form-label">Date to Add
+                event to
+              </label>
+              <input type="datetime-local" max="{{maxAllowedDate}}" min="{{minAllowedDate}}" class="form-control"
+                name="dateAddedTo" id="task_dateAddedTo" value="" />
+
+              <div id="task_dateAddedTo_error" class="invalid-feedback">
+                <p>
+                  Please enter a date Range between
+                  <br>
+                  {{minAllowedDate}} to {{maxAllowedDate}}
+                </p>
+              </div>
+            </div>
+            {{! add more fields for other events }}
+            <div class="mb-3">
+              <label for="task_checked" class="form-label">Completed</label>
+              <input type="checkbox" class="form-check-input" name="checked" value="true" id="task_checked" {{#if
+                checked}}checked{{/if}} />
+              <div id="task_checked_error" class="invalid-feedback">
+                <input type="hidden" id="task_checked_state" value="false">
+
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div id="task-update-result">
+
+          </div>
+          <button id="task-bottom-submit-button" type="submit" form="task-form" value="Save Changes"
+            class="btn btn-primary">Save Changes</button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

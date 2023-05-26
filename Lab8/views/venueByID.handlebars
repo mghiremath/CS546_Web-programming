@@ -1,0 +1,47 @@
+<h1>Venue Details</h1>
+<div>
+  <h2>
+    {{venue.name}}
+  </h2>
+  {{#if venue.images}}
+  {{#each venue.images}}
+  {{#if this.url}}
+  <img alt="{{../venue.name}}" src="{{this.url}}" />
+  {{else}}
+  <img alt="{{../venue.name}}" src="/public/images/No_Image_Available.jpg" />
+  {{/if}}
+  {{/each}}
+  <br />
+  {{else}}
+  <img alt="{{../venue.name}}" src="/public/images/No_Image_Available.jpg" />
+  <br />
+  {{/if}}
+  {{#if venue.url}}
+  <a target="_blank" href="{{venue.url}}">Venue Information on
+    Ticketmaster</a>
+  {{else}}N/A
+  {{/if}}
+  <address>Address:
+    {{#if venue.address.line1}}
+    {{venue.address.line1}}
+    {{else}}N/A
+    {{/if}},
+    {{#if venue.city.name}}
+    {{venue.city.name}}
+    {{else}}N/A
+    {{/if}},
+    {{#if venue.state.stateCode}}
+    {{venue.state.stateCode}}
+    {{else}}N/A
+    {{/if}},
+    {{#if venue.postalCode}}
+    {{venue.postalCode}}
+    {{else}}N/A
+    {{/if}}</address>
+  <address>
+    {{#if venue.boxOfficeInfo.phoneNumberDetail}}
+    Phone:{{venue.boxOfficeInfo.phoneNumberDetail}}
+    {{else}}N/A
+    {{/if}}
+  </address>
+</div>

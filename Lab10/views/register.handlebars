@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Register</h1>
+    <form action="/register" id="registration-form" method="POST">
+        <label for="firstNameInput">First Name:</label>
+        <input type="text" name="firstNameInput" id="firstNameInput" required>
+        <div id="firstName_error" class="error-message">{{errorMessages.firstNameInput}}</div>
+
+        <label for="lastNameInput">Last Name:</label>
+        <input type="text" name="lastNameInput" id="lastNameInput" required>
+        <div id="lastName_error" class="error-message">{{errorMessages.lastNameInput}}</div>
+
+        <label for="emailAddressInput">Email Address:</label>
+        <input type="email" name="emailAddressInput" id="emailAddressInput" required>
+        <div id="emailAddress_error" class="error-message">{{errorMessages.emailAddressInput}}</div>
+
+        <label for="passwordInput">Password:</label>
+        <input type="password" name="passwordInput" id="passwordInput" required>
+        <div id="password_error" class="error-message">{{errorMessages.passwordInput}}</div>
+
+        <label for="confirmPasswordInput">Confirm Password:</label>
+        <input type="password" name="confirmPasswordInput" id="confirmPasswordInput" required>
+        <div id="confirmPassword_error" class="error-message">{{errorMessages.confirmPasswordInput}}</div>
+
+        <label for="roleInput">Role:</label>
+        <select name="roleInput" id="roleInput" required>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
+        <div id="role_error" class="error-message">{{errorMessages.roleInput}}</div>
+
+        <button type="submit">Register</button>
+        <div id="other_error" class="error-message">{{errorMessages.cant_create}}</div>
+    </form>
+    <p>Already have an account? <a href="/login">Click here to log-in</a></p>
+
+</div>
